@@ -96,8 +96,13 @@ public class App {
                 }
 
                 break;
-
+            
+            case 0:
+                System.out.println("Encerrando");
+                break;
+                
             default:
+                System.out.println("Comando inválido");
                 break;
         }
 
