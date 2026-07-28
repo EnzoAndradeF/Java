@@ -1,0 +1,54 @@
+# ======================================================
+# CENTRAL DE INSTALAÇÃO DE PROGRAMAS VIA POWERSHELL
+# ======================================================
+
+Clear-Host
+Write-Host "===============================================" -ForegroundColor Cyan
+Write-Host "         CENTRAL DE INSTALAÇÃO DE SOFTWARE     " -ForegroundColor Yellow
+Write-Host "===============================================" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "1. Chrome"
+Write-Host "2. AnyDesk"
+Write-Host "3. WinRAR"
+Write-Host "4. WhatsApp"
+Write-Host "5. Instalar TODOS os programas acima"
+Write-Host "0. Sair"
+Write-Host ""
+
+$opcao = Read-Host "Digite a opção desejada"
+
+switch ($opcao) {
+    "1" {
+        Write-Host "Instalando Google Chrome..." -ForegroundColor Green
+        winget install --id Google.Chrome --silent --accept-source-agreements --accept-package-agreements
+    }
+    "2" {
+        Write-Host "Instalando AnyDesk..." -ForegroundColor Green
+        winget install --id AnyDesk.AnyDesk --silent --accept-source-agreements --accept-package-agreements
+    }
+    "3" {
+        Write-Host "Instalando WinRAR..." -ForegroundColor Green
+        winget install --id RARLab.WinRAR --silent --accept-source-agreements --accept-package-agreements
+    }
+    "4" {
+        Write-Host "Instalando WhatsApp..." -ForegroundColor Green
+        winget install --id 9NKSQGP7F2NH --source msstore --silent --accept-source-agreements --accept-package-agreements
+    }
+    "5" {
+        Write-Host "Instalando Pacote Completo..." -ForegroundColor Yellow
+        winget install --id Google.Chrome --silent --accept-source-agreements --accept-package-agreements
+        winget install --id AnyDesk.AnyDesk --silent --accept-source-agreements --accept-package-agreements
+        winget install --id RARLab.WinRAR --silent --accept-source-agreements --accept-package-agreements
+        winget install --id 9NKSQGP7F2NH --source msstore --silent --accept-source-agreements --accept-package-agreements
+    }
+    "0" {
+        Write-Host "Saindo..." -ForegroundColor Red
+        exit
+    }
+    Default {
+        Write-Host "Opção inválida!" -ForegroundColor Red
+    }
+}
+
+Write-Host ""
+Write-Host "Processo finalizado!" -ForegroundColor Green
